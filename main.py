@@ -58,7 +58,3 @@ while current_nr_turns < max_turns:
         print(f"You failed to guess the word in {max_turns} turns. Game over. The word was '{random_word}'.")
     else:
         print(f"You have {max_turns - current_nr_turns} turns left to guess the word.")
-
-
-# checking for a win or loss
-
