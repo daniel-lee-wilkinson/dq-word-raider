@@ -25,7 +25,7 @@ current_nr_turns = 0
 
 
 print(f"Welcome to {game_name}!")
-print(f"The word has 5 letters to guess. \nYou have {max_turns-current_nr_turns} turns left to guess the word.")
+print(f"The word has {WORD_LENGTH} letters to guess. \nYou have {max_turns-current_nr_turns} turns left to guess the word.")
 
 ## validation logic
 while current_nr_turns < max_turns:
