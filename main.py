@@ -1,5 +1,8 @@
 import random
+
+MAX_GUESSES = 8
 game_name ="WordRaiderGame"
+WORD_LENGTH = 5
 
 # read in words per line from words.txt
 
@@ -17,22 +20,23 @@ random_word = random.choice(word_list)
 
 misplaced_letters = []
 incorrect_letters = []
-max_turns = 8
+max_turns = MAX_GUESSES
 current_nr_turns = 0
+
 
 print(f"Welcome to {game_name}!")
 print(f"The word has 5 letters to guess. \nYou have {max_turns-current_nr_turns} turns left to guess the word.")
 
 ## validation logic
 while current_nr_turns < max_turns:
-    input_val = input("What is your guess?")
-    input_val = input_val.lower()
-    if len(input_val) != 5 or not input_val.isalpha():
+    guess = input("What is your guess?")
+    guess = guess.lower()
+    if len(guess) != WORD_LENGTH or not guess.isalpha():
         print("Your input format is wrong. It must be letters only and at most 5 letters long.")
         continue
     else:
 
-        for index, char in enumerate(input_val):
+        for index, char in enumerate(guess):
             if char == random_word[index]:
                 print(f"{char} is correct")
                 if char in misplaced_letters:
@@ -50,7 +54,7 @@ while current_nr_turns < max_turns:
     print(f"Misplaced letters: {misplaced_letters} \nIncorrect letters: {incorrect_letters}")
     current_nr_turns += 1
 
-    if input_val == random_word:
+    if guess == random_word:
         print("Congratulations! You guessed the word!")
         break
 
